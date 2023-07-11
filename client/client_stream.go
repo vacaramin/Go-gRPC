@@ -10,7 +10,7 @@ import (
 
 func callSayHelloClientStream(client pb.GreetServiceClient, names *pb.NamesList) {
 	log.Printf("Client Streaming Started")
-	stream, err := client.SayhelloClientStreaming(context.Background())
+	stream, err := client.SayHelloClientStreaming(context.Background())
 	if err != nil {
 		log.Fatalf("couldn't send names: %v", err)
 	}

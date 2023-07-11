@@ -7,7 +7,7 @@ import (
 	pb "github.com/vacaramin/Go-gRPC/proto"
 )
 
-func (s *helloServer) SayhelloClientStreaming(stream pb.GreetService_SayhelloClientStreamingServer) error {
+func (s *helloServer) SayhelloClientStreaming(stream pb.GreetService_SayHelloClientStreamingServer) error {
 	var messages []string
 	for {
 		req, err := stream.Recv()
