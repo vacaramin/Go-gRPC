@@ -1,4 +1,4 @@
-# Go-Grpc - Basic gRPC Server and Client in Go
+# Go-Grpc
 This project demonstrates the usage of gRPC, a high-performance, open-source framework for remote procedure calls (RPC) developed by Google. gRPC allows communication between different systems and programming languages using a simplified interface definition.
 
 ## gRPC Communication Methods
