@@ -14,7 +14,7 @@ func callSayHello(client pb.GreetServiceClient) {
 	res, err := client.SayHello(ctx, &pb.NoParam{})
 
 	if err != nil {
-		log.Fatalf("couldn't greet &v", err)
+		log.Fatalf("couldn't greet %v", err)
 	}
 	log.Printf("%s", res.Message)
 

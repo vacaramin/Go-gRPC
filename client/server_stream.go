@@ -8,9 +8,9 @@ import (
 	pb "github.com/vacaramin/Go-gRPC/proto"
 )
 
-func callSayHelloServerStream(client pb.GreetServiceClient, names *pb.NamesList) {
+func callSayHelloServerStream(client pb.GreetServiceClient, name *pb.NamesList) {
 	log.Printf("Streaming Started")
-	stream, err := client.SayHelloServerStreaming(context.Background(), names)
+	stream, err := client.SayHelloServerStreaming(context.Background(), name)
 	if err != nil {
 		log.Fatalf("couldn't send names: %v", err)
 	}
