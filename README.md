@@ -31,6 +31,7 @@ gRPC provides four main communication patterns:
 5. Generate the .pb.go files from the proto file:
 
 *If the greet.proto file is in the proto directory, run:*
+    
     ```shell
     protoc --go_out=. --go-grpc_out=. proto/greet.proto
     
