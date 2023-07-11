@@ -20,9 +20,9 @@ message HelloResponse{
   string message = 1;
 }
 message NamesList{
-  repeated string name =1;
+  repeated string names =1;
 }
 
 message MessagesList{
-  repeated string name = 1;
+  repeated string messages = 1;
 }

@@ -12,7 +12,7 @@ func (s *helloServer) SayhelloClientStreaming(stream pb.GreetService_SayhelloCli
 	for {
 		req, err := stream.Recv()
 		if err == io.EOF {
-			return stream.SendAndClose(&pb.MessagesList{Name: messages})
+			return stream.SendAndClose(&pb.MessagesList{Messages: messages})
 		}
 		if err != nil {
 			return err
