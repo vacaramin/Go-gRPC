@@ -13,8 +13,24 @@ gRPC provides four main communication patterns:
 4. **Bidirectional Streaming RPC:** This method allows both the client and the server to send and receive streams of messages. The client and server can independently read and write messages on the same connection.
 
 ## 🚀 Setting up a gRPC-Go project
-   1. Create a new directory for your project and navigate into it:
-   ```shell
-    mkdir go-grpc
-    cd go-grpc
-    mkdir client server proto
+1. Create a new directory for your project and navigate into it:
+    ```shell
+        mkdir go-grpc
+        cd go-grpc
+        mkdir client server proto
+2. Install the gRPC Go plugin:
+    ```shell
+        go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+        go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+        export PATH="$PATH:$(go env GOPATH)/bin"
+3. Initialize a Go module:
+    ```shell
+        go mod init github.com/your_username/basic-go-grpc
+        go mod tidy
+4. Create the proto file with the required services and messages in the proto directory.
+5. Generate the .pb.go files from the proto file:
+    ****If the greet.proto file is in the proto directory, run:
+    ```shell
+       protoc --go_out=. --go-grpc_out=. proto/greet.proto
+    **** If the greet.proto file contains a different path, adjust the command accordingly.
+6. Create the server and client directories and create the main.go files with the necessary controllers and services.
