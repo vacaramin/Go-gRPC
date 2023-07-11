@@ -38,7 +38,7 @@ func NewGreetServiceClient(cc grpc.ClientConnInterface) GreetServiceClient {
 
 func (c *greetServiceClient) SayHello(ctx context.Context, in *NoParam, opts ...grpc.CallOption) (*HelloResponse, error) {
 	out := new(HelloResponse)
-	err := c.cc.Invoke(ctx, "/greet_service.GreetService/sayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/greet_service.GreetService/SayHello", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func (c *greetServiceClient) SayHello(ctx context.Context, in *NoParam, opts ...
 }
 
 func (c *greetServiceClient) SayHelloServerStreaming(ctx context.Context, in *NamesList, opts ...grpc.CallOption) (GreetService_SayHelloServerStreamingClient, error) {
-	stream, err := c.cc.NewStream(ctx, &GreetService_ServiceDesc.Streams[0], "/greet_service.GreetService/sayHelloServerStreaming", opts...)
+	stream, err := c.cc.NewStream(ctx, &GreetService_ServiceDesc.Streams[0], "/greet_service.GreetService/SayHelloServerStreaming", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +112,7 @@ func (x *greetServiceSayHelloClientStreamingClient) CloseAndRecv() (*MessagesLis
 }
 
 func (c *greetServiceClient) SayHelloBidrectionalStreaming(ctx context.Context, opts ...grpc.CallOption) (GreetService_SayHelloBidrectionalStreamingClient, error) {
-	stream, err := c.cc.NewStream(ctx, &GreetService_ServiceDesc.Streams[2], "/greet_service.GreetService/sayHelloBidrectionalStreaming", opts...)
+	stream, err := c.cc.NewStream(ctx, &GreetService_ServiceDesc.Streams[2], "/greet_service.GreetService/SayHelloBidrectionalStreaming", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -192,7 +192,7 @@ func _GreetService_SayHello_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/greet_service.GreetService/sayHello",
+		FullMethod: "/greet_service.GreetService/SayHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GreetServiceServer).SayHello(ctx, req.(*NoParam))
@@ -281,13 +281,13 @@ var GreetService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*GreetServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "sayHello",
+			MethodName: "SayHello",
 			Handler:    _GreetService_SayHello_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "sayHelloServerStreaming",
+			StreamName:    "SayHelloServerStreaming",
 			Handler:       _GreetService_SayHelloServerStreaming_Handler,
 			ServerStreams: true,
 		},
@@ -297,7 +297,7 @@ var GreetService_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 		{
-			StreamName:    "sayHelloBidrectionalStreaming",
+			StreamName:    "SayHelloBidrectionalStreaming",
 			Handler:       _GreetService_SayHelloBidrectionalStreaming_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
